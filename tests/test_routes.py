@@ -20,3 +20,11 @@ def test_get_one_book(client, two_saved_books):
         "title": "Ocean Book",
         "description": "watr 4evr"
     }
+
+def test_get_one_non_existing_book(client):
+    #Act
+    response = client.get("/books/1")
+    response_body = response.get_json()
+
+    #Assert
+    assert response.status_code == 404
