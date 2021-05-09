@@ -35,3 +35,11 @@ def two_saved_books(app):
     # db.session.add(ocean_book)
     # db.session.add(mountain_book)
     db.session.commit()
+
+@pytest.fixture
+def one_saved_books(app):
+    tree_book = Book(title="Tree Book",
+        description="leafy leaves"
+        )
+    db.session.add(tree_book)
+    db.session.commit()
